@@ -1,8 +1,8 @@
 import express from "express";
-import { indexRouter } from "./routes";
+import { aboutMe, indexRouter } from "./routes";
 
 const app = express();
 
-app.use([indexRouter]);
+app.use([indexRouter, aboutMe]);
 
 export { app };

@@ -7,3 +7,4 @@ router.get("/", async (req, res) => {
 });
 
 export { router as indexRouter };
+export * from "./about-me";
