@@ -3,8 +3,8 @@ import "express-async-errors";
 import { json } from "body-parser";
 import cookieSession from "cookie-session";
 
-import { errorHandler } from "./middlewares/error-handler";
-import { NotFoundError } from "./errors";
+import { errorHandler } from "../src/middlewares/error-handler";
+import { NotFoundError } from "../src/errors";
 
 import {
   aboutMeRouter,
@@ -12,7 +12,7 @@ import {
   signupRouter,
   signinRouter,
   currentUserRouter,
-} from "./routes";
+} from "../src/routes";
 
 const app = express();
 app.set("trust proxy", true);
