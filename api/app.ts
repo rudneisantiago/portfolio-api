@@ -12,6 +12,7 @@ import {
   signupRouter,
   signinRouter,
   currentUserRouter,
+  signoutRouter,
 } from "../src/routes";
 
 const app = express();
@@ -31,6 +32,7 @@ app.use([
   signupRouter,
   currentUserRouter,
   signinRouter,
+  signoutRouter,
 ]);
 
 app.all("*", async (req, res, next) => {
