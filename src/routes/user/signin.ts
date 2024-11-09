@@ -1,19 +1,24 @@
 import express, { Request, Response } from "express";
-// import { body } from "express-validator";
+import { body } from "express-validator";
+import jwt from "jsonwebtoken";
+
 import { User } from "../../models/User";
 import { Password } from "../../services/password";
-import jwt from "jsonwebtoken";
 import { BadRequestError } from "../../errors";
+import { validateRequest } from "../../middlewares";
 
 const router = express.Router();
 
 router.post(
   "/users/signin",
-  //   [
-  //     body("email").isEmail().withMessage("Email must be valid"),
-  //     body("password").trim().notEmpty().withMessage("You must suppy a password"),
-  //   ],
-  //   validateRequest,
+  [
+    body("username").trim().notEmpty().withMessage("Username must be supply"),
+    body("password")
+      .trim()
+      .notEmpty()
+      .withMessage("You must supply a password"),
+  ],
+  validateRequest,
   async (req: Request, res: Response) => {
     const { username, password } = req.body;
 
