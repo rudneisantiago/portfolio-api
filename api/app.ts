@@ -14,6 +14,7 @@ import {
   currentUserRouter,
   signoutRouter,
 } from "../src/routes";
+import { swaggerDocs } from "../src/utils/swagger";
 
 const app = express();
 app.set("trust proxy", true);
@@ -34,6 +35,8 @@ app.use([
   signinRouter,
   signoutRouter,
 ]);
+
+swaggerDocs(app);
 
 app.all("*", async (req, res, next) => {
   throw new NotFoundError();

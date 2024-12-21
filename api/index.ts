@@ -9,7 +9,9 @@ const start = async () => {
     });
     console.log("MongoDb connection succeeded");
 
-    app.listen(8000, () => console.log("Server ready on port 8000"));
+    app.listen(8000, () => {
+      console.log("Server ready on port 8000");
+    });
   } catch (error) {
     console.log(error);
   }

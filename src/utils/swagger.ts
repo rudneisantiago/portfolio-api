@@ -1,0 +1,34 @@
+import { Express, Request, Response } from "express";
+import swaggerJSDoc from "swagger-jsdoc";
+import { serve, setup } from "swagger-ui-express";
+
+const options: swaggerJSDoc.Options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Documentação da minha API pessoal de portfolio",
+      version: "1.0.0",
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
+  },
+  apis: ["./src/routes/*.ts"],
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+
+function swaggerDocs(app: Express) {
+  app.use("/docs", serve, setup(swaggerSpec));
+
+  app.get("/docs.json", (_: Request, res: Response) => {
+    res.setHeader("Content-Type", "application/json");
+    res.send(swaggerSpec);
+  });
+
+  console.log("Docs available at /docs");
+}
+
+export { swaggerDocs };
