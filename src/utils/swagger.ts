@@ -24,7 +24,7 @@ const options: swaggerJSDoc.Options = {
 const swaggerSpec = swaggerJSDoc(options);
 
 function swaggerDocs(app: Express) {
-  app.use("/docs", serve, setup(swaggerSpec, { customCss: CSS_URL }));
+  app.use("/docs", serve, setup(swaggerSpec, { customCssUrl: CSS_URL }));
 
   app.get("/docs.json", (_: Request, res: Response) => {
     res.setHeader("Content-Type", "application/json");
