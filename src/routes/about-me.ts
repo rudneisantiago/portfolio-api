@@ -6,7 +6,7 @@ const router = express.Router();
  * @swagger
  * /about-me:
  *  get:
- *    summary: Retorna as informações principais da página
+ *    summary: Retorna as informações principais da página inicial
  *    tags:
  *      - Principal
  *    responses:
