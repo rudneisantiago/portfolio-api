@@ -6,7 +6,7 @@ const router = express.Router();
  * @swagger
  * /:
  *  get:
- *    summary: Rota para teste de publicação oK
+ *    summary: Rota para teste de publicação
  *    tags:
  *      - Check route
  *    responses:
