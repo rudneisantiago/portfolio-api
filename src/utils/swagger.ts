@@ -2,6 +2,9 @@ import { Express, Request, Response } from "express";
 import swaggerJSDoc from "swagger-jsdoc";
 import { serve, setup } from "swagger-ui-express";
 
+const CSS_URL =
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.6.2/swagger-ui.min.css";
+
 const options: swaggerJSDoc.Options = {
   definition: {
     openapi: "3.0.0",
@@ -15,13 +18,13 @@ const options: swaggerJSDoc.Options = {
       },
     ],
   },
-  apis: ["./src/routes/*.ts"],
+  apis: ["src/routes/*.ts"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
 
 function swaggerDocs(app: Express) {
-  app.use("/docs", serve, setup(swaggerSpec));
+  app.use("/docs", serve, setup(swaggerSpec, { customCss: CSS_URL }));
 
   app.get("/docs.json", (_: Request, res: Response) => {
     res.setHeader("Content-Type", "application/json");
