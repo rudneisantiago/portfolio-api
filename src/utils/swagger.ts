@@ -9,7 +9,7 @@ const options: swaggerJSDoc.Options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Documentação da minha API pessoal de portfolio",
+      title: `${process.cwd()}-${__dirname}`,
       version: "1.0.0",
     },
     security: [
@@ -20,7 +20,6 @@ const options: swaggerJSDoc.Options = {
   },
   apis: [`src/**/*.ts`, `./src/**/*.ts`, `../src/**/*.ts`],
 };
-console.log(__dirname);
 
 const swaggerSpec = swaggerJSDoc(options);
 
