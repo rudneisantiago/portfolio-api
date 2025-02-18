@@ -18,8 +18,9 @@ const options: swaggerJSDoc.Options = {
       },
     ],
   },
-  apis: ["./**/*.ts"],
+  apis: [`${__dirname}/../**/*.ts`],
 };
+console.log(__dirname);
 
 const swaggerSpec = swaggerJSDoc(options);
 
