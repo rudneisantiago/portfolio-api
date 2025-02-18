@@ -18,7 +18,7 @@ const options: swaggerJSDoc.Options = {
       },
     ],
   },
-  apis: [`${__dirname}/../**/*.ts`],
+  apis: [`src/**/*.ts`, `./src/**/*.ts`, `../src/**/*.ts`],
 };
 console.log(__dirname);
 
