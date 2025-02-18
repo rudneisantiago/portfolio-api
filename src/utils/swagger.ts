@@ -18,9 +18,9 @@ const options: swaggerJSDoc.Options = {
       },
     ],
   },
-  apis: [`${process.cwd()}/src/**/*.ts`],
+  apis: ["./**/*.ts"],
 };
-console.log(process.cwd());
+
 const swaggerSpec = swaggerJSDoc(options);
 
 function swaggerDocs(app: Express) {
